@@ -8,12 +8,12 @@ interface Props {
 const CocktailCard = ({ cocktail, children }: Props) => {
     return (
         <div
-            className={`bg-white rounded-xl grid grid-cols-[40%,auto] gap-4 pr-8 h-60 lg:w-2/5`}
+            className={`bg-white rounded-xl grid grid-cols-[40%,auto] gap-4 pr-8 h-60 w-full lg:w-2/5`}
         >
             <img
                 src={cocktail.strDrinkThumb}
                 alt={cocktail.strDrink}
-                className='h-full object-cover rounded-l-xl overflow-hidden'
+                className='h-full object-cover rounded-l-xl overflow-hidden w-full'
             />
             <div>
                 <p className="font-['Nova_Mono'] font-bold text-xl underline">

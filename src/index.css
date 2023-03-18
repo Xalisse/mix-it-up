@@ -11,6 +11,10 @@ html {
     body {
         @apply text-amber-900;
     }
+    li {
+        @apply ml-4;
+        list-style-type: '⟐ ';
+    }
     h1 {
         @apply text-5xl text-center;
         font-family: 'Nova Mono', monospace;
