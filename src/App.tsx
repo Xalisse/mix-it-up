@@ -4,10 +4,9 @@ import { CocktailCard } from './CocktailCard'
 import RandomCocktail from './RandomCocktail'
 
 function App() {
-    const [cocktails, setCocktails] = useState<Cocktail[]>([])
-    const [cocktailsByIngredient, setCocktailsByIngredient] = useState<
-        Partial<Cocktail>[]
-    >([])
+    const [cocktails, setCocktails] = useState<Cocktail[]>()
+    const [cocktailsByIngredient, setCocktailsByIngredient] =
+        useState<Partial<Cocktail>[]>()
 
     const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -49,7 +48,7 @@ function App() {
                 <span className='italic'>!</span>
             </h1>
 
-            <div className='flex flex-col px-4'>
+            <div className='flex flex-col px-4 lg:mx-[10%]'>
                 <form
                     onSubmit={handleSearch}
                     className='flex justify-center mt-10'
@@ -58,52 +57,57 @@ function App() {
                         type='text'
                         name='search'
                         placeholder='Search a cocktail'
-                        className='w-4/5 bg-white rounded-l-lg p-2'
+                        className='w-4/5 lg:w-3/5 bg-white rounded-l-lg p-2 lg:py-4'
                     />
                     <button
                         type='submit'
-                        className='bg-amber-400 w-1/5 rounded-r-lg'
+                        className='bg-amber-400 w-1/5 lg:w-1/6 rounded-r-lg'
                     >
                         🔍
                     </button>
                 </form>
-                <a href='#ingredient-search' className='text-center'>
-                    You don&apos;t know the name ? Try the search by ingredient
-                    👁️
-                </a>
 
-                <div className='flex flex-wrap gap-4 mt-8'>
-                    {cocktails.length === 0 && (
+                <p className='text-center'>
+                    You don&apos;t know the name ?
+                    <a href='#ingredient-search'>
+                        {' '}
+                        Try the search by ingredient 👁️{' '}
+                    </a>
+                </p>
+
+                <div className='flex flex-wrap gap-4 mt-8 lg:justify-center'>
+                    {cocktails && cocktails.length === 0 && (
                         <p className='text-center'>
                             No cocktail found with this name
                         </p>
                     )}
-                    {cocktails.map((cocktail) => (
-                        <CocktailCard
-                            key={cocktail.idDrink}
-                            cocktail={cocktail}
-                        >
-                            <ul>
-                                {cocktail.ingredients.map(
-                                    (ingredient, index) => (
-                                        <li
-                                            key={`${cocktail.idDrink}-${ingredient.name}-full-cocktail-${index}`}
-                                        >
-                                            {ingredient.name}{' '}
-                                            {ingredient.quantity}
-                                        </li>
-                                    )
-                                )}
-                            </ul>
-                        </CocktailCard>
-                    ))}
+                    {cocktails &&
+                        cocktails.map((cocktail) => (
+                            <CocktailCard
+                                key={cocktail.idDrink}
+                                cocktail={cocktail}
+                            >
+                                <ul>
+                                    {cocktail.ingredients.map(
+                                        (ingredient, index) => (
+                                            <li
+                                                key={`${cocktail.idDrink}-${ingredient.name}-full-cocktail-${index}`}
+                                            >
+                                                {ingredient.name}{' '}
+                                                {ingredient.quantity}
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+                            </CocktailCard>
+                        ))}
                 </div>
             </div>
 
             <div className='bg-amber-100 p-4 pb-10 my-8'>
                 <h2>No inspiration ?</h2>
                 <h2>Some random cocktails for you 🍹</h2>
-                <div className='flex flex-wrap gap-4 mt-4'>
+                <div className='flex flex-wrap gap-4 mt-4 lg:justify-center lg:mx-[10%]'>
                     <RandomCocktail />
                     <RandomCocktail />
                 </div>
@@ -128,19 +132,21 @@ function App() {
                         🔍
                     </button>
                 </form>
-                <div className='flex flex-wrap gap-4'>
-                    {cocktailsByIngredient.length === 0 && (
-                        <p className='text-center'>
-                            No cocktail found with this ingredient
-                        </p>
-                    )}
-                    {cocktailsByIngredient.map((cocktail) => (
-                        // <PartialCocktailCard key={cocktail.id} cocktail={cocktail} />
-                        <CocktailCard
-                            key={`${cocktail.idDrink}-ingredients`}
-                            cocktail={cocktail}
-                        />
-                    ))}
+                <div className='flex flex-wrap gap-4 lg:justify-center lg:mx-[10%]'>
+                    {cocktailsByIngredient &&
+                        cocktailsByIngredient.length === 0 && (
+                            <p className='text-center'>
+                                No cocktail found with this ingredient
+                            </p>
+                        )}
+                    {cocktailsByIngredient &&
+                        cocktailsByIngredient.map((cocktail) => (
+                            // <PartialCocktailCard key={cocktail.id} cocktail={cocktail} />
+                            <CocktailCard
+                                key={`${cocktail.idDrink}-ingredients`}
+                                cocktail={cocktail}
+                            />
+                        ))}
                 </div>
             </div>
         </div>
