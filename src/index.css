@@ -22,9 +22,16 @@ html {
     h2 {
         @apply text-lg text-center;
     }
+    h3 {
+        @apply text-lg;
+    }
 
     a {
         @apply text-amber-400 font-bold;
+    }
+
+    button, [type='submit'] {
+        @apply bg-amber-400 text-white font-bold rounded-lg p-2;
     }
 
     /* Change the white to any color */
