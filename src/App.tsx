@@ -4,7 +4,7 @@ import Home from './Home';
 
 function App() {
     return (
-        <div className='bg-neutral-50'>
+        <main className='bg-neutral-50'>
             <h1>
                 M<span className='italic'>i</span>x It Up
                 <span className='italic'>!</span>
@@ -16,9 +16,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                 </Routes>
             </BrowserRouter>
-
-
-        </div>
+        </main>
     )
 }
 
