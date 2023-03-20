@@ -34,6 +34,10 @@ html {
         @apply bg-amber-400 text-white font-bold rounded-lg p-2;
     }
 
+    input, textarea {
+        @apply border border-amber-400 rounded p-2;
+    }
+
     /* Change the white to any color */
     input:-webkit-autofill,
     input:-webkit-autofill:hover, 
