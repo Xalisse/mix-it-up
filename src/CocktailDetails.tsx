@@ -16,11 +16,11 @@ const CocktailDetails = () => {
             })
     }, [id])
 
-    return <div className='flex flex-col'>
-        <a onClick={() => navigate('/')} className='self-center'>↩ Back to all cocktails</a>
+    return <div className='flex flex-col md:grid md:grid-cols-[40%,1fr]'>
+        <a onClick={() => navigate('/')} className='self-center col-span-2 justify-self-center'>↩ Back to all cocktails</a>
 
-        <h2 className="font-['Nova_Mono'] font-bold underline mt-8 text-2xl">{cocktail?.strDrink}</h2>
-        <img src={cocktail?.strDrinkThumb} alt={cocktail?.strDrink} />
+        <h2 className="font-['Nova_Mono'] font-bold underline mt-8 text-2xl md:col-start-2 md:justify-self-start md:pl-2">{cocktail?.strDrink}</h2>
+        <img src={cocktail?.strDrinkThumb} alt={cocktail?.strDrink} className='md:col-start-1 lg:row-span-2'/>
         <div className='p-4 bg-amber-100'>
             <h3>Ingredients 🍸</h3>
             <ul>
@@ -32,7 +32,7 @@ const CocktailDetails = () => {
             </ul>
         </div>
         
-        <div className='m-4'>
+        <div className='m-4 md:col-span-2 lg:col-span-1'>
             <h3>Instructions ✨</h3>
             <div>{cocktail?.strInstructions}</div>
         </div>
