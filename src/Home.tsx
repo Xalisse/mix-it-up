@@ -42,7 +42,7 @@ const Home = () => {
             })
     }
     return <>
-        <div className='flex flex-col px-4 lg:mx-[10%]'>
+        <div className='flex flex-col px-4 lg:mx-[5%]'>
             <form
                 onSubmit={handleSearch}
                 className='flex justify-center mt-10'
@@ -51,7 +51,7 @@ const Home = () => {
                     type='text'
                     name='search'
                     placeholder='Search a cocktail'
-                    className='w-4/5 lg:w-3/5 bg-white rounded-l-lg p-2 lg:py-4'
+                    className='w-4/5 lg:w-3/5 bg-white rounded-r-none p-2 lg:py-4'
                 />
                 <button
                     type='submit'
@@ -107,7 +107,7 @@ const Home = () => {
             </div>
         </div>
 
-        <div id='ingredient-search' className='pb-8 px-4'>
+        <div id='ingredient-search' className='flex flex-col pb-8 px-4 lg:mx-[5%]'>
             <h2>Search by the ingredient you have 🍊</h2>
             <form
                 onSubmit={handleSearchIngredient}
@@ -117,16 +117,16 @@ const Home = () => {
                     type='text'
                     name='searchingredients'
                     placeholder='Search by ingredient'
-                    className='w-4/5 bg-white rounded-l-lg p-2'
+                    className='w-4/5 lg:w-3/5 bg-white rounded-r-none p-2 lg:py-4'
                 />
                 <button
                     type='submit'
-                    className='w-1/5 rounded-none rounded-r-lg'
+                    className='w-1/5 lg:w-1/6 rounded-none rounded-r-lg'
                 >
                     🔍
                 </button>
             </form>
-            <div className='flex flex-wrap gap-4 lg:justify-center lg:mx-[10%]'>
+            <div className='flex flex-wrap gap-4 lg:justify-center'>
                 {cocktailsByIngredient &&
                     cocktailsByIngredient.length === 0 && (
                         <p className='text-center'>
@@ -135,7 +135,6 @@ const Home = () => {
                     )}
                 {cocktailsByIngredient &&
                     cocktailsByIngredient.map((cocktail) => (
-                        // <PartialCocktailCard key={cocktail.id} cocktail={cocktail} />
                         <CocktailCard
                             key={`${cocktail.idDrink}-ingredients`}
                             cocktail={cocktail}

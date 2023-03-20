@@ -10,7 +10,7 @@ const CocktailCard = ({ cocktail, children }: Props) => {
 
     return (
         <div
-            className={`bg-white rounded-xl grid grid-cols-[40%,auto] gap-4 pr-8 h-60 w-full lg:w-2/5`}
+            className={`bg-white rounded-xl grid grid-cols-[40%,auto] gap-4 pr-8 h-80 w-full lg:w-2/5`}
         >
             <img
                 src={cocktail.strDrinkThumb}
